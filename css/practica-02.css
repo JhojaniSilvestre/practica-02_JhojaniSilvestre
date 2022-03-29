@@ -1,0 +1,24 @@
+body{
+	font-family:Cambria;
+	font-size:16pt;
+	background-color:green;
+	color:yellow;
+	line-height:2rem;
+	margin-top:10%;
+	margin-left:15%;
+}
+
+label+input{
+	left:3%;
+}
+
+.error{
+	font-family:Cambria;
+	font-size:16pt;
+	font-weight:bold;
+	left:4%;
+	background-color:green;
+	color:red;
+	border:none;
+	width:40%;
+}
