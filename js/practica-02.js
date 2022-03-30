@@ -36,89 +36,63 @@ function validar(){
     if (!validarNombre(nombre)) {
         enviar = false;
         document.formulario.errNombre.value="Error, nombre incorrecto";
-    } 
-    else{
-    document.formulario.errNombre.value="";
     }
+
     if (!validarApellido(apellido)) {
         enviar = false;
         document.formulario.errApellido.value="Error, apellido incorrecto";
-    } 
-    else{
-    document.formulario.errApellido.value="";
     }
+
     if (!validarDenomVia(denomvia)) {
         enviar = false;
         document.formulario.errDenomvia.value="Error, denominación de la vía incorrecta";
-    } 
-    else{
-    document.formulario.errDenomvia.value="";
     }
+
     if (!validarNif(nif)) {
         enviar = false;
         document.formulario.errNif.value="Error, NIF incorrecto";
-    } 
-    else{
-    document.formulario.errNif.value="";
     }
+
     if (!validarTipovia(tipovia)) {
         enviar = false;
         document.formulario.errTipovia.value="Error, Tipo de vía incorrecta";
-    } 
-    else{
-    document.formulario.errTipovia.value="";
     }
+
     if (!validarNumero(numero)) {
         enviar = false;
         document.formulario.errNumero.value="Error, número incorrecto";
-    } 
-    else{
-    document.formulario.errNumero.value="";
     }
+
     if (!validarCorreo(correo)) {
         enviar = false;
         document.formulario.errCorreo.value="Error, correo electrónico incorrecto";
-    } 
-    else{
-    document.formulario.errCorreo.value="";
     }
+
     if (!validarWeb(web)) {
         enviar = false;
         document.formulario.errWeb.value="Error, dirección web incorrecta";
-    } 
-    else{
-    document.formulario.errWeb.value="";
     }
+
     if (!validarFnac(fnac)) {
         enviar = false;
         document.formulario.errFnac.value="Error, fecha introducida incorrecta";
-    } 
-    else{
-    document.formulario.errFnac.value="";
     }
+
     if (estadocivil.length == 0) {
         enviar = false;
         document.formulario.errEstadociv.value="Error, marque un estado civil";
     } 
-    else{
-    document.formulario.errEstadociv.value="";
-    }
+    
     if (!validarSectores(sector)) {
         enviar = false;
         document.formulario.errSectores.value="Error, marque al menos 3 sectores";
     } 
-    else{
-    document.formulario.errSectores.value="";
-    }
+    
     if (!validarPaisesTrab(paises)) {
         enviar = false;
         document.formulario.errPaises.value="Error, marque al menos 2 países";
     } 
-    else{
-    document.formulario.errPaises.value="";
-    }
-
-
+    
     return enviar;
 
 }
@@ -211,7 +185,7 @@ function validarTipovia(dato){
     dato = dato.toLowerCase();
     let correcto = true;
     //solo admite los valores Calle, Avenida, Paseo, Plaza, Camino, Ronda, Carretera, Plazuela
-    let expresion = /^\b(calle|avenida|paseo|plaza|camino|ronda|carretera|plazuela)\b$/i;
+    let expresion = /^\b((calle)|(avenida)|(paseo)|(plaza)|(camino)|(ronda)|(carretera)|(plazuela))\b$/i;
     if (!expresion.test(dato)) {
         correcto = false;
     }
@@ -221,7 +195,7 @@ function validarTipovia(dato){
 function validarNumero(dato){
     let correcto = true;
     //un número de una a tres cifras
-    let expresion = /^(0?0?[0-9]|0?[1-9]\d|[1-9]\d{2})$/i;
+    let expresion = /^(0?0?[0-9]|0?[1-9]\d|[1-9]\d{2})$/;
     if (!expresion.test(dato)) {
         correcto = false;
     }
@@ -240,7 +214,7 @@ function validarCorreo(dato){
     //le sigue 1 dígito o letra
     //acontinuacion punto
     //termina 2-4 letras
-    let expresion = /^[a-z][0-9a-z\-\.]{0,}[0-9a-z]@[a-z][0-9a-z\-]{0,}[0-9a-z]\.[a-z]{2,4}$/i;
+    let expresion = /^[a-z][0-9a-z\-\.]+[0-9a-z]@[a-z][0-9a-z\-]+[0-9a-z]\.[a-z]{2,4}$/i;
     if (!expresion.test(dato)) {
         correcto = false;
     }
@@ -257,7 +231,7 @@ function validarWeb(dato){
     //le sigue 1 dígito o letra antes del punto
     //punto
     //termina 2-4 letras
-    let expresion = /^(((http:\/\/|https:\/\/)(www\.))|(www\.))?[a-z][0-9a-z\-]{0,}[0-9a-z]\.[a-z]{2,4}$/i;
+    let expresion = /^((http:\/\/)|(https:\/\/))?(www\.)?[a-z][0-9a-z\-]+[0-9a-z]\.[a-z]{2,4}$/i;
     if (!expresion.test(dato)) {
         correcto = false;
     }
