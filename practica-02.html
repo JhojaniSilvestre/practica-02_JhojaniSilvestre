@@ -56,6 +56,46 @@
                     <input type="text" id="web" name="web">
                     <input type="text" name="errWeb" class="error" readonly disabled /><br />
 
+                    <fieldset>
+                        <legend>Estado Civil</legend>
+                        <input type="radio" name="estadocivil" value="solteroa">Soltero/a<br>
+                        <input type="radio" name="estadocivil" value="casadoa">Casado/a<br>
+                        <input type="radio" name="estadocivil" value="separadoa">Separado/a<br>
+                        <input type="radio" name="estadocivil" value="divorciadoa">Divorciado/a<br>
+                        <input type="radio" name="estadocivil" value="viudoa">Viudo/a<br>
+                        <input type="radio" name="estadocivil" value="parejadh">Pareja de hecho<br>
+                        <input type="radio" name="estadocivil" value="otros">Otros<br>
+                        <input type="text" name="errEstadociv" class="error" readonly disabled /><br />
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Sectores en que ha trabajado</legend>
+                        <input type="checkbox" name="sector" value="hosteleria">Hostelería</br>
+                        <input type="checkbox" name="sector" value="industria">Industria</br>
+                        <input type="checkbox" name="sector" value="comercio">Comercio</br>
+                        <input type="checkbox" name="sector" value="agricultura">Agricultura</br>
+                        <input type="checkbox" name="sector" value="ganaderia">Ganaderia</br>
+                        <input type="checkbox" name="sector" value="comunicaciones">Comunicaciones</br>
+                        <input type="checkbox" name="sector" value="informatica">Informatica</br>
+                        <input type="text" name="errSectores" class="error" readonly disabled /><br />
+                    </fieldset><br>
+
+                    <label for="paises">Paises en los que ha trabajado:</label>
+                    <select name="paises" multiple>
+                        <option value="es">España</option>
+                        <option value="fr">Francia</option>
+                        <option value="al">Alemania</option>
+                        <option value="it">Italia</option>
+                        <option value="sz">Suiza</option>
+                        <option value="gr">Grecia</option>
+                        <option value="mt">Malta</option>
+                        <option value="hl">Holanda</option>
+                        <option value="fl">Finlandia</option>
+                        <option value="sc">Suecia</option>
+                    </select><br>
+                    <input type="text" name="errPaises" class="error" readonly disabled /><br />
+                    
+
                     <input type="submit" value="Enviar" />
                 </form>
             </fieldset>

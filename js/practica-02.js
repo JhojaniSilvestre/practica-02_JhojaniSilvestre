@@ -16,6 +16,9 @@ function validar(){
     document.formulario.errNumero.value="";
     document.formulario.errCorreo.value="";
     document.formulario.errWeb.value="";
+    document.formulario.errEstadociv.value="";
+    document.formulario.errSectores.value="";
+    document.formulario.errPaises.value="";
     //extraigo el valor de las cajas de texto
     let nombre = document.formulario.nombre.value.trim();
     let apellido = document.formulario.apellido.value.trim();
@@ -26,6 +29,9 @@ function validar(){
     let correo = document.formulario.correo.value.trim();
     let web = document.formulario.web.value.trim();
     let fnac = document.formulario.fnac.value.trim();
+    let estadocivil = document.formulario.estadocivil.value;
+    let sector = document.formulario.sector;
+    let paises = document.formulario.paises;
 
     if (!validarNombre(nombre)) {
         enviar = false;
@@ -90,10 +96,63 @@ function validar(){
     else{
     document.formulario.errFnac.value="";
     }
+    if (estadocivil.length == 0) {
+        enviar = false;
+        document.formulario.errEstadociv.value="Error, marque un estado civil";
+    } 
+    else{
+    document.formulario.errEstadociv.value="";
+    }
+    if (!validarSectores(sector)) {
+        enviar = false;
+        document.formulario.errSectores.value="Error, marque al menos 3 sectores";
+    } 
+    else{
+    document.formulario.errSectores.value="";
+    }
+    if (!validarPaisesTrab(paises)) {
+        enviar = false;
+        document.formulario.errPaises.value="Error, marque al menos 2 países";
+    } 
+    else{
+    document.formulario.errPaises.value="";
+    }
+
 
     return enviar;
 
 }
+
+function validarSectores(dato) {
+    let correcto = true;
+    let i = 0;
+    let cont = 0;
+    while (i < dato.length) {
+        if (dato[i].checked) //si está marcado 
+            cont++; //incremento
+        i++;        
+    }
+    if (cont < 3) { //si hay menos de 3 seleccionados
+        correcto = false;
+    }
+    return correcto;
+}
+
+function validarPaisesTrab(dato) {
+    let correcto = true;
+    let i = 0;
+    let cont = 0;
+    while (i < dato.length) {
+        if (dato[i].selected) //si está seleccionado
+            cont++; //incremento
+        i++;        
+    }
+    if (cont < 2) { //si hay menos de 2 seleccionados
+        correcto = false;
+    }
+    return correcto;
+}
+
 
 function validarNombre(dato){
     dato = dato.toLowerCase();
@@ -162,7 +221,7 @@ function validarTipovia(dato){
 function validarNumero(dato){
     let correcto = true;
     //un número de una a tres cifras
-    let expresion = /^[0-9]{1,3}$/i; //corregir
+    let expresion = /^(0?0?[0-9]|0?[1-9]\d|[1-9]\d{2})$/i;
     if (!expresion.test(dato)) {
         correcto = false;
     }
